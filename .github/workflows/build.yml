@@ -30,7 +30,9 @@ jobs:
           echo "TAG_ANME=$(date +%Y%m%d)" >> $GITHUB_ENV
       - name: Rename
         run: |
-          rename 's/(.*)_(.*)-(.*).trx/${{ matrix.target }}_$2.trx/' /home/runner/work/padavan4.4/padavan4.4/trunk/images/*
+          #rename 's/(.*)_(.*)-(.*).trx/${{ matrix.target }}_$2.trx/' /home/runner/work/padavan4.4/padavan4.4/trunk/images/*
+          mv /home/runner/work/padavan4.4/padavan4.4/trunk/images/*.trx /home/runner/work/padavan4.4/padavan4.4/trunk/images/${{ matrix.target }}_4.4.198.9.trx
+          du -sh /home/runner/work/padavan4.4/padavan4.4/trunk/images/*
       - uses: actions/upload-artifact@v3
         with:
           name: images
